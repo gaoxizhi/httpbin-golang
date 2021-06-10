@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- 嵌入动作 -->
+<div>从后台得到的数据是:{{.}}</div>
+<!-- 包含 hello2.html 模板 -->
+{{ template "resources/static/hello2.html"}}
+<div>hello.html 文件内容结束</div>
+<hr/>
+<div>将 hello.html 模板文件中的数据传递给 hello2.html
+    模板文件
+</div>
+{{ template "resources/static/hello2.html" . }}
+
+</body>
+</html>

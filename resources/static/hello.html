@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello GoLang</title>
+</head>
+<body>
+<!-- 嵌入动作 -->
+<div>得到的数据是:{{.}}</div>
+{{with "太子"}}
+<div>替换之后的数据是:{{.}}</div>
+{{end}}
+<hr/>
+{{with ""}}
+<div>看一下现在的数据是:{{.}}</div>
+{{else}}
+<div>数据没有被替换，还是:{{.}}</div>
+{{end}}
+
+</body>
+</html>
