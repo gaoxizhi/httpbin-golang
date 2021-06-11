@@ -13,6 +13,7 @@ import (
 )
 
 // RequestBodyHandler 获取请求体
+// 使用net/http包创建一个函数处理器，函数的入参必须是http.ResponseWriter和http.Request指针类型
 func RequestBodyHandler(w http.ResponseWriter, r *http.Request) {
 	length := r.ContentLength
 	//创建一个字节切片
@@ -20,7 +21,11 @@ func RequestBodyHandler(w http.ResponseWriter, r *http.Request) {
 	//读取请求体
 	r.Body.Read(body)
 	fmt.Fprintln(w, "请求体中的内容是:", string(body))
-
+	fmt.Fprintln(w, "你发送的请求的请求地址是：", r.URL.Path)
+	fmt.Fprintln(w, "你发送的请求的请求地址后的查询字符串是：", r.URL.RawQuery)
+	fmt.Fprintln(w, "请求头中的所有信息有：", r.Header)
+	fmt.Fprintln(w, "请求头中Accept-Encoding的信息是：", r.Header["Accept-Encoding"])
+	fmt.Fprintln(w, "请求头中Accept-Encoding的属性值是：", r.Header.Get("Accept-Encoding"))
 	//解析表单
 	r.ParseForm()
 	//获取请求参数
